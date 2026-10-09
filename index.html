@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أذكار الصباح والمساء | بالأدلة الصحيحة</title>
+<meta name="description" content="موقع أذكار الصباح والمساء بالأدعية الصحيحة مع مصادرها ودرجة الحديث والفضل — بخط ثمانية ومسبحة لكل ذكر">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dawod/thmanyah-font-web/index.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- الشريط العلوي الثابت -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-icon">🕌</span>
+      <span class="brand-text">أذكــاري</span>
+    </div>
+    <div class="top-controls">
+      <!-- التحكم بحجم الخط -->
+      <div class="font-ctrl" role="group" aria-label="التحكم بحجم الخط">
+        <button id="fontDec" class="icon-btn" title="تصغير الخط" aria-label="تصغير الخط">أ−</button>
+        <span id="fontPct" class="font-pct" title="حجم الخط الحالي">100%</span>
+        <button id="fontInc" class="icon-btn" title="تكبير الخط" aria-label="تكبير الخط">أ+</button>
+        <button id="fontReset" class="icon-btn ghost" title="إعادة حجم الخط للافتراضي" aria-label="إعادة حجم الخط">↺</button>
+      </div>
+      <span class="sep"></span>
+      <!-- الثيم -->
+      <button id="themeBtn" class="icon-btn theme" title="تبديل المظهر" aria-label="تبديل المظهر">🌙</button>
+    </div>
+  </div>
+</header>
+
+<!-- الواجهة الرئيسية -->
+<section class="hero">
+  <div class="hero-pattern" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="badge">﴿ فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ ﴾ — البقرة 152</div>
+    <h1>أذكار الصباح والمساء</h1>
+    <p class="subtitle">أدعية صحيحة ثابتة عن النبي ﷺ — مع المصدر ودرجة الحديث وفضل كل ذكر ومسبحة خاصة به</p>
+    <div id="timeHint" class="time-hint"></div>
+
+    <div class="tabs" role="tablist" aria-label="أقسام الأذكار">
+      <button id="tabMorning" class="tab active" role="tab" aria-selected="true">☀️ أذكار الصباح</button>
+      <button id="tabEvening" class="tab" role="tab" aria-selected="false">🌙 أذكار المساء</button>
+    </div>
+
+    <div class="toolbar">
+      <div class="search-box">
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <input id="search" type="search" placeholder="ابحث في الأذكار... مثال: الكرسي، الاستغفار، الكهف" aria-label="البحث في الأذكار">
+      </div>
+      <div class="progress-wrap" aria-live="polite">
+        <div class="progress-info">
+          <span id="progressText">0 / 0 مكتمل</span>
+          <span id="totalCount">المجموع: 0</span>
+        </div>
+        <div class="progress-bar"><div id="progressFill"></div></div>
+      </div>
+      <div class="actions">
+        <button id="resetBtn" class="btn btn-ghost">↺ تصفير الورد الحالي</button>
+        <button id="hideDoneBtn" class="btn btn-ghost">🙈 إخفاء المنجز</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+  <section class="info-cards">
+    <div class="info-card">
+      <span class="ic">🌅</span>
+      <div><strong>وقت الصباح:</strong> من بعد صلاة الفجر حتى شروق الشمس
+      <span class="src">الوابل الصيب لابن القيم</span></div>
+    </div>
+    <div class="info-card">
+      <span class="ic">🌇</span>
+      <div><strong>وقت المساء:</strong> من بعد صلاة العصر حتى غروب الشمس
+      <span class="src">متفق عليه عند العلماء</span></div>
+    </div>
+    <div class="info-card gold">
+      <span class="ic">✅</span>
+      <div><strong>منهجنا:</strong> لا نذكر إلا ما صحّ أو حسُن إسناده، مع المصدر والدرجة والفضل.</div>
+    </div>
+  </section>
+
+  <div id="list" class="cards"></div>
+  <div id="emptyState" class="empty hidden">لا توجد نتائج مطابقة لبحثك — جرّب كلمة أخرى 🌿</div>
+
+  <section class="sources">
+    <h2>📚 المصادر المعتمدة</h2>
+    <ul>
+      <li>صحيح البخاري وصحيح مسلم</li>
+      <li>سنن أبي داود والترمذي والنسائي وابن ماجه بتحقيقات الألباني</li>
+      <li>مسند الإمام أحمد، عمل اليوم والليلة للنسائي</li>
+      <li>صحيح الجامع، صحيح الترغيب والترهيب، الوابل الصيب لابن القيم</li>
+    </ul>
+    <p class="note">رُوجعت النصوص لتطابق لفظ الحديث. عند وجود خلاف في التصحيح والتحسين نبّهنا عليه داخل بطاقة الذكر. الخط المستخدم: <strong>خط ثمانية</strong> (Sans للنصوص العامة، Serif Display للعناوين، Serif Text لنصوص الأذكار).</p>
+  </section>
+</main>
+
+<footer>
+  <p>صدقة جارية — انسخ وانشر الأذكار. قال ﷺ: «مَن دَلَّ على خيرٍ فله مثلُ أجرِ فاعلِه» — رواه مسلم 1893</p>
+  <p class="foot-small">صُنع بحب لخدمة الذاكرين 🤍 — تُحفظ بيانات تقدمك في متصفحك فقط</p>
+</footer>
+
+<!-- مسبحة عامة -->
+<button id="counterFab" title="المسبحة العامة" aria-label="فتح المسبحة العامة">📿<span id="fabCount">0</span></button>
+<div id="counterModal" class="modal hidden" role="dialog" aria-modal="true" aria-label="المسبحة العامة">
+  <div class="modal-box">
+    <h3>📿 المسبحة العامة</h3>
+    <p class="modal-sub">اذكر الله مطلقاً — يُحفظ عددك تلقائياً</p>
+    <div id="counterVal">0</div>
+    <button id="counterPlus" class="btn btn-primary btn-big">+ اضغط للذكر</button>
+    <div class="modal-row">
+      <button id="counterMinus" class="btn btn-ghost dark-btn">−1</button>
+      <button id="counterReset" class="btn btn-ghost dark-btn">تصفير</button>
+      <button id="counterClose" class="btn btn-ghost dark-btn">إغلاق</button>
+    </div>
+  </div>
+</div>
+
+<script src="adhkar.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+/* ===== خط ثمانية + تصميم أنيق ===== */
+:root{
+  --font-scale: 1;
+  --bg:#f6f1e6;
+  --bg2:#efe7d3;
+  --card:#ffffff;
+  --ink:#22312d;
+  --muted:#6b7a75;
+  --primary:#0d6e5f;
+  --primary-dark:#0a5448;
+  --primary-soft:#e2f2ec;
+  --gold:#b98a1e;
+  --gold-soft:#fdf3d7;
+  --border:#e6dcc2;
+  --shadow:0 12px 32px rgba(13,110,95,.10);
+  --radius:20px;
+  --topbar:#fffffff2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Thmanyah Sans",system-ui,"Segoe UI",Tahoma,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:2;
+  transition:background .3s,color .3s;
+}
+/* الوضع الليلي */
+body.dark{
+  --bg:#0d1715;
+  --bg2:#0a1210;
+  --card:#152422;
+  --ink:#eaf4f0;
+  --muted:#9db3ab;
+  --primary:#2fbf9f;
+  --primary-dark:#25a487;
+  --primary-soft:#12332d;
+  --gold:#e3b94e;
+  --gold-soft:#2b250c;
+  --border:#25403a;
+  --shadow:0 12px 32px rgba(0,0,0,.45);
+  --topbar:#0d1715ee;
+}
+
+/* الشريط العلوي */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:var(--topbar);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.topbar-inner{
+  max-width:1040px;margin:0 auto;
+  padding:10px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.3rem;font-family:"Thmanyah Serif Display",serif}
+.brand-icon{
+  width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  border-radius:14px;font-size:1.4rem;box-shadow:var(--shadow);
+}
+.top-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.font-ctrl{
+  display:flex;align-items:center;gap:6px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:999px;padding:4px 6px;
+}
+.font-pct{font-weight:800;font-size:.88rem;min-width:52px;text-align:center;color:var(--primary)}
+.icon-btn{
+  font-family:inherit;font-weight:800;cursor:pointer;
+  min-width:38px;height:38px;border-radius:999px;
+  border:1px solid var(--border);background:var(--primary-soft);color:var(--ink);
+  font-size:1rem;transition:.2s;padding:0 10px;
+}
+.icon-btn:hover{transform:translateY(-1px);filter:brightness(1.03)}
+.icon-btn.ghost{background:transparent}
+.icon-btn.theme{background:linear-gradient(135deg,#1c2b28,#0d6e5f);color:#fff;border:none;font-size:1.2rem;width:44px}
+body.dark .icon-btn.theme{background:linear-gradient(135deg,#e3b94e,#b98a1e);color:#201600}
+.sep{width:1px;height:28px;background:var(--border)}
+
+/* الواجهة */
+.hero{
+  position:relative;overflow:hidden;color:#fff;
+  background:linear-gradient(135deg,#0e7a68 0%,#0a5448 45%,#07332d 100%);
+  padding:44px 20px 30px;
+}
+body.dark .hero{background:linear-gradient(135deg,#0c2b26 0%,#081a17 60%,#050f0e 100%)}
+.hero-pattern{
+  position:absolute;inset:0;opacity:.14;pointer-events:none;
+  background-image:
+    radial-gradient(circle at 15% 25%, #fff 1.6px, transparent 1.6px),
+    radial-gradient(circle at 85% 30%, #ffd97a 1.8px, transparent 1.8px),
+    radial-gradient(circle at 50% 80%, #fff 1.3px, transparent 1.3px);
+  background-size:64px 64px,72px 72px,56px 56px;
+}
+.hero-pattern::after{
+  content:"٭ ٭ ٭";position:absolute;bottom:6px;left:0;right:0;text-align:center;
+  letter-spacing:30px;font-size:1.6rem;opacity:.35;
+}
+.hero-inner{position:relative;max-width:1040px;margin:0 auto;text-align:center}
+.badge{
+  display:inline-block;background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.32);
+  padding:7px 20px;border-radius:999px;
+  font-family:"Thmanyah Serif Text",serif;font-size:1.02rem;
+}
+.hero h1{
+  font-family:"Thmanyah Serif Display",serif;
+  font-size:clamp(2.1rem,5.5vw,3.4rem);
+  margin:12px 0 4px;font-weight:900;line-height:1.6;
+}
+.subtitle{opacity:.93;margin:0 0 10px;font-size:1.05rem}
+.time-hint{
+  background:#fff3cd;color:#664d03;display:inline-block;
+  padding:6px 18px;border-radius:999px;font-size:.94rem;margin:10px 0;font-weight:700;
+}
+body.dark .time-hint{background:#3a3005;color:#ffe58a}
+.tabs{display:flex;gap:10px;justify-content:center;margin:18px 0;flex-wrap:wrap}
+.tab{
+  border:2px solid rgba(255,255,255,.38);background:rgba(255,255,255,.12);color:#fff;
+  padding:11px 30px;border-radius:999px;font-family:inherit;font-weight:800;font-size:1.08rem;cursor:pointer;transition:.2s;
+}
+.tab.active{background:#fff;color:#0a5448;box-shadow:0 8px 22px rgba(0,0,0,.22)}
+.toolbar{max-width:740px;margin:0 auto}
+.search-box{position:relative}
+.search-icon{position:absolute;right:16px;top:50%;transform:translateY(-50%);opacity:.6}
+.search-box input{
+  width:100%;padding:13px 46px 13px 18px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.45);font-family:inherit;font-size:1rem;outline:none;
+  background:#ffffffee;color:#22312d;
+}
+.search-box input:focus{border-color:#ffd97a;box-shadow:0 0 0 4px rgba(255,217,122,.35)}
+.progress-wrap{margin-top:14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:10px 16px}
+.progress-info{display:flex;justify-content:space-between;font-size:.92rem;margin-bottom:6px;font-weight:700}
+.progress-bar{height:11px;background:rgba(255,255,255,.25);border-radius:999px;overflow:hidden}
+#progressFill{height:100%;width:0;background:linear-gradient(90deg,#ffd97a,#fff);border-radius:999px;transition:width .35s}
+.actions{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.btn{font-family:inherit;border-radius:999px;padding:9px 22px;cursor:pointer;border:1px solid transparent;font-weight:700;transition:.2s}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.32)}
+.btn-ghost:hover{background:rgba(255,255,255,.24)}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-dark)}
+.dark-btn{background:var(--primary-soft);color:var(--ink);border-color:var(--border)}
+.btn-big{width:100%;font-size:1.15rem;padding:14px;margin:12px 0}
+
+/* المحتوى */
+.container{max-width:1040px;margin:0 auto;padding:22px 18px}
+.info-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:20px 0}
+.info-card{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:13px 16px;box-shadow:var(--shadow);font-size:.96rem;
+  display:flex;gap:10px;align-items:flex-start;
+}
+.info-card .ic{font-size:1.5rem}
+.info-card.gold{background:linear-gradient(135deg,#fffbeb,#fef0c2);border-color:#eed189;color:#5b430a}
+body.dark .info-card.gold{background:#262006;color:#ffe58a;border-color:#5a4a12}
+.info-card .src{display:block;color:var(--muted);font-size:.83rem}
+.cards{display:grid;gap:18px}
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:var(--shadow);overflow:hidden;transition:.25s;position:relative;
+}
+.card:hover{transform:translateY(-2px)}
+.card.done{border:2px solid var(--primary)}
+.card.done::before{
+  content:"✓ تم بحمد الله";position:absolute;top:0;left:0;
+  background:var(--primary);color:#fff;font-size:.78rem;font-weight:800;
+  padding:3px 14px;border-radius:0 0 14px 0;
+}
+.card-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px 0;gap:10px;flex-wrap:wrap}
+.card-num{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;
+  width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;
+  border-radius:12px;font-weight:900;margin-left:9px;font-size:1rem;
+}
+.card.done .card-num{background:var(--primary)}
+.card-title{font-weight:900;font-size:calc(1.22rem * var(--font-scale));font-family:"Thmanyah Serif Display",serif;margin:0;line-height:1.8}
+.grade{font-size:.79rem;padding:5px 14px;border-radius:999px;font-weight:800;white-space:nowrap}
+.grade.sahih{background:#dcfce7;color:#065f46;border:1px solid #86efac}
+.grade.hasan{background:#fef9c3;color:#854d0e;border:1px solid #fde047}
+body.dark .grade.sahih{background:#06382f;color:#a7f3d0;border-color:#155e4b}
+body.dark .grade.hasan{background:#3a3005;color:#fde68a;border-color:#6b5711}
+
+/* نص الذكر — بخط ثمانية للنصوص مع تكبير/تصغير */
+.card-text{
+  padding:16px 22px;
+  font-family:"Thmanyah Serif Text",serif;
+  font-size:calc(1.38rem * var(--font-scale));
+  line-height:2.35;
+  background:linear-gradient(to bottom,transparent,rgba(185,138,30,.07));
+  margin:12px 16px;border-radius:14px;border:1px dashed var(--border);
+}
+.meta{padding:0 20px 4px;font-size:calc(.93rem * var(--font-scale))}
+.meta div{margin:7px 0;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:9px 14px;line-height:2}
+body.dark .meta div{background:#0e1d1b}
+.meta .label{font-weight:800;color:var(--primary)}
+.virtue{border-right:4px solid var(--gold)!important}
+.source{border-right:4px solid var(--primary)!important}
+
+/* منطقة المسبحة لكل ذكر */
+.tasbih-zone{
+  display:flex;gap:16px;align-items:center;
+  padding:14px 20px 20px;flex-wrap:wrap;
+}
+.sebha-btn{
+  position:relative;width:118px;height:118px;border-radius:50%;cursor:pointer;
+  border:4px solid var(--primary);
+  background:conic-gradient(var(--primary) var(--p,100%), var(--bg2) var(--p,100%));
+  font-family:inherit;transition:transform .12s;color:var(--ink);
+  flex-shrink:0;
+}
+.sebha-btn:active{transform:scale(.94)}
+.sebha-inner{
+  position:absolute;inset:9px;background:var(--card);border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border:1px solid var(--border);line-height:1.5;
+}
+.sebha-count{font-size:1.9rem;font-weight:900;color:var(--primary)}
+.sebha-label{font-size:.76rem;color:var(--muted);font-weight:700}
+.sebha-hint{font-size:.72rem;color:var(--muted)}
+.sebha-btn.finished{border-color:var(--gold);background:conic-gradient(var(--gold) 100%, var(--gold) 100%)}
+.sebha-btn.finished .sebha-count{color:var(--gold);font-size:1.5rem}
+.tasbih-side{flex:1;min-width:230px}
+.repeat-line{font-weight:800;margin-bottom:8px;font-size:calc(1rem * var(--font-scale))}
+.repeat-line b{color:var(--primary);font-size:1.25em}
+.tasbih-btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn-small{
+  background:var(--bg);border:1px solid var(--border);border-radius:12px;
+  padding:8px 16px;cursor:pointer;font-family:inherit;font-weight:700;color:var(--ink);transition:.2s;
+}
+.btn-small:hover{border-color:var(--primary);color:var(--primary)}
+.btn-small.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+.single-done-btn{
+  width:100%;padding:15px;border-radius:16px;border:2px dashed var(--border);
+  background:var(--bg);font-family:inherit;font-weight:800;font-size:calc(1.05rem * var(--font-scale));
+  cursor:pointer;color:var(--ink);transition:.2s;
+}
+.single-done-btn:hover{border-color:var(--primary);color:var(--primary)}
+.single-done-btn.is-done{background:var(--primary);color:#fff;border-style:solid;border-color:var(--primary)}
+
+/* المصادر والفوتر */
+.sources{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin:28px 0;box-shadow:var(--shadow)}
+.sources h2{margin-top:0;font-family:"Thmanyah Serif Display",serif}
+.note{color:var(--muted);font-size:.9rem}
+.empty{text-align:center;padding:34px;background:var(--card);border:1px dashed var(--border);border-radius:16px;color:var(--muted);font-weight:700}
+.hidden{display:none!important}
+footer{text-align:center;padding:26px 18px;color:var(--muted);font-size:.93rem;border-top:1px solid var(--border);margin-top:10px}
+.foot-small{font-size:.82rem;opacity:.8}
+
+/* المسبحة العامة */
+#counterFab{
+  position:fixed;bottom:22px;left:22px;width:64px;height:64px;border-radius:50%;border:none;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;
+  font-size:1.7rem;cursor:pointer;box-shadow:0 10px 26px rgba(0,0,0,.3);z-index:40;
+}
+#counterFab span{
+  position:absolute;top:-7px;right:-7px;background:var(--gold);color:#201600;
+  font-size:.8rem;font-weight:900;min-width:26px;height:26px;border-radius:999px;
+  display:flex;align-items:center;justify-content:center;padding:0 7px;border:2px solid #fff;
+}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:20px;z-index:60;backdrop-filter:blur(3px)}
+.modal-box{background:var(--card);border-radius:22px;padding:26px;text-align:center;min-width:min(360px,90vw);border:1px solid var(--border);box-shadow:var(--shadow)}
+.modal-box h3{margin:0;font-family:"Thmanyah Serif Display",serif;font-size:1.4rem}
+.modal-sub{color:var(--muted);font-size:.9rem;margin:4px 0 0}
+#counterVal{font-size:3.4rem;font-weight:900;color:var(--primary);margin:6px 0}
+.modal-row{display:flex;gap:8px;justify-content:center;margin-top:6px;flex-wrap:wrap}
+
+/* حركة الإنجاز */
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.04)}100%{transform:scale(1)}}
+.card.just-done{animation:pop .4s ease}
+
+@media(max-width:640px){
+  .card-text{font-size:calc(1.18rem * var(--font-scale));padding:13px 16px}
+  .tasbih-zone{justify-content:center;text-align:center}
+  .tasbih-side{width:100%}
+  .tasbih-btns{justify-content:center}
+  .topbar-inner{justify-content:center}
+}
